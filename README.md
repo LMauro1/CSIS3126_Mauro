@@ -20,3 +20,4 @@ In the coming future:
 	- Create user profile tie-in with db and accessable
 	- Figure out how to modify navbar to change when a user is logged in 
 	- UI updates/changes to make application prettier
+	- WILL CHANGE .html FILES TO USE A HEADER/FOOTER FILE INSTEAD (just not done currently)

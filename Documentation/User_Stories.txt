@@ -3,5 +3,9 @@ As a user, I want to be able to sign up for a new account to the website if I do
 As a user, I want to be able to view profiles (my own and other peoples)
 As a user, I want to be able to edit my profile 
 As a user, I want to be able to follow movies that I like
+As a user, I want to be able to search for my friends
 As a user, I want to be able to share my followed movies with friends
+
+------Tentative Additions-----
 As a user, I want to be able to send my friends a friend request
+As a user, I want to be able to subsequently remove a friend 
