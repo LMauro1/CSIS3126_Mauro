@@ -7,6 +7,7 @@ view their profile, add friends (tentatively), and view others profiles.
 
 
 Currently, there is:
+
 	- A log-in page, not currently doing anything as there is no database
 	- An account creation page, also not currently doing anything as no db
 	- A "landing page/ home page" that is majorly empty
