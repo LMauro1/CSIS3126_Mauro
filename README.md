@@ -14,6 +14,7 @@ Currently, there is:
 	- An account creation page, also not currently doing anything as no db
 	- A "landing page/ home page" that is majorly empty
 	- A "profile" page that once again doesn't currently do much
+	- A "edit profile" page that also doesn't currently do anything (profile/edit profile are here more as a proof of concept than final)
 
 
 In the coming future: 
