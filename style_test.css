@@ -29,7 +29,7 @@ input[type=submit]{
 	background-image: linear-gradient(to bottom right, rgba(0,0,0,0), rgba(0,0,0,1));
 	overflow: hidden;
 	border: 2px solid black;
-  margin-top: 2px;
+
 }
 
 .topnav a{
@@ -124,12 +124,12 @@ a {
 }
 .logo{
 	width: 170px;
-  margin-bottom: 2px;
+
 }
 
 body{
     margin-top:20px;
-    color: #1a202c;
+    color: white;
     text-align: left;
     background-color: #e2e8f0;    
 }
