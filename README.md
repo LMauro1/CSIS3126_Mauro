@@ -6,6 +6,8 @@ should in the end be able to log into their account, see the media they are trac
 view their profile, add friends (tentatively), and view others profiles. 
 
 
+Link to the current application: https://lmauro1.github.io/CSIS3126_Mauro
+
 Currently, there is:
 
 	- A log-in page, not currently doing anything as there is no database
