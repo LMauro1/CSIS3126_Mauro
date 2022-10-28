@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta charset="UTF-8">
-	  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	  	<title>Profile</title>
-	  	<link rel="shortcut icon" type="image/jpg" href="favicon.ico"/>
-		<link rel="stylesheet" href = "style_test.css"/>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
-	</head>
-
-	<body>
-
-		<div class ="header">
-			<a href="index.html"><img src = "https://www.logolynx.com/images/logolynx/9a/9ac1859618b5cf17e81966d87a0029e0.png" class="logo" align="left"></a>
-			<h1 style="display:inline;"> Show Tracker (name WIP) </h1>
-		</div>
-
-		<div class = "topnav">
-			<a class = "active" href = "index.html"> Home </a>
-		</div>
+<?php
+	include("header.php");
+?>
 
 		<div class="container">
 	    	<div class="main-body">
@@ -59,55 +37,53 @@
 	                </ul>
 	              </div>
 	            </div>
-
-	            <div class="col-lg-8">
-					<div class="card">
-						<div class="card-body">
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Full Name</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="John Smith">
-								</div>
+	        <div class="col-lg-8">
+				<div class="card">
+					<div class="card-body">
+						<div class="row mb-3">
+							<div class="col-sm-3">
+								<h6 class="mb-0">Full Name</h6>
 							</div>
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Email</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="johnsmith@fakeemail.com">
-								</div>
+							<div class="col-sm-9 text-secondary">
+								<input type="text" class="form-control" value="John Smith">
 							</div>
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Phone</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="(239) 816-9029">
-								</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-sm-3">
+								<h6 class="mb-0">Email</h6>
 							</div>
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Mobile</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="(320) 380-4539">
-								</div>
+							<div class="col-sm-9 text-secondary">
+								<input type="text" class="form-control" value="johnsmith@fakeemail.com">
 							</div>
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Address</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="Bay Area, San Francisco, CA">
-								</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-sm-3">
+								<h6 class="mb-0">Phone</h6>
 							</div>
-							<div class="row">
-								<div class="col-sm-3"></div>
-								<div class="col-sm-9 text-secondary">
-									<input type="button" class="btn btn-primary px-4" value="Save Changes">
-								</div>
+							<div class="col-sm-9 text-secondary">
+								<input type="text" class="form-control" value="(239) 816-9029">
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-sm-3">
+								<h6 class="mb-0">Mobile</h6>
+							</div>
+							<div class="col-sm-9 text-secondary">
+								<input type="text" class="form-control" value="(320) 380-4539">
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-sm-3">
+								<h6 class="mb-0">Address</h6>
+							</div>
+							<div class="col-sm-9 text-secondary">
+								<input type="text" class="form-control" value="Bay Area, San Francisco, CA">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-3"></div>
+							<div class="col-sm-9 text-secondary">
+								<input type="button" class="btn btn-primary px-4" value="Save Changes">
 							</div>
 						</div>
 					</div>
@@ -115,6 +91,8 @@
 			</div>
 		</div>
 	</div>
+</div>
 
-	</body>
-</html>
+<?php
+	include("footer.php");
+?>
