@@ -14,6 +14,8 @@
 	$username = mysqli_real_escape_string($connection, $_POST["username"]);
 	$password = mysqli_real_escape_string($connection, $_POST["password"]);
 
+
+
 	$res = mysqli_query($connection, "select * from users where username = '$username' and password = '$password'");
 
 	if($errormessage != ""){
@@ -27,7 +29,7 @@
 	} else {
 
 		$row = mysqli_fetch_assoc($res);
-		$_SESSION["userid"] = $row["id"];
+		$_SESSION['username'] = $row["id"];
 
 		header("Location: index.php");
 	}

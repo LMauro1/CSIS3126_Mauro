@@ -2,6 +2,11 @@
 	include("header.php");
 	include("global.php");
 ?>
+<style>
+	html{
+		height:100%;
+	   }
+</style>
 
 <div class="login-box">
 	<h2> Log In </h2>
@@ -16,7 +21,7 @@
 		</div>
 
 		<div class="user-box">
-			<p> Don't have an account? Sign up <a href = "sign_up.php"> here! </a> </p> <br/>
+			<p class="white"> Don't have an account? Sign up <a href = "sign_up.php"> here! </a> </p> <br/>
 		</div>
 
 		<div style="color: red; font-weight: bold;">
