@@ -25,13 +25,14 @@
         </div>
 
 
+
         <h1 style="color:white"> Your Search: </h1>
 
-         <div class="container"> <h1 class="white" id="showsHeader"> Shows </h1>
+         <div class="container"> <h1 class="white" id="showsHeader"><u> Shows </u></h1>
             <div id="shows" class="row"></div>
         </div>
 
-        <div class="container"> <h1 class=white id="moviesHeader"> Movies </h1>
+        <div class="container"> <h1 class="white" id="moviesHeader"> <u>Movies</u> </h1>
             <div id="movies" class="row"></div>
         </div>
     </div>

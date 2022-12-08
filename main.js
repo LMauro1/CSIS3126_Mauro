@@ -1,4 +1,4 @@
-//code below runs when the webpage is opened; when the user types in data, takes it in and pushes it, then runs the "getMovies" function
+//code below runs when the webpage is opened; when the user types in data, takes it in and pushes it, then runs the "searchMovies" function
 //to allow the user to search through TVDB's database of movies. 
 
 $(document).ready(() => {
@@ -10,8 +10,8 @@ $(document).ready(() => {
             console.log(true);
         }
 
-        getMovies(searchText);
-        getShows(searchText);
+        searchMovies(searchText);
+        searchShows(searchText);
         e.preventDefault();
     })
 })
@@ -89,8 +89,8 @@ function popularShows() {
                       <div class="movieBox">
                         <img src="${poster}" alt="poster" width="210" height="315" class="img">
                         <div class="browse-movie-bottom">
-                            <a href="#" onclick="movieSelected('${tv.id}')" class="browse-movie-title">${tv.name}</a>
-                            <div class="browse-movie-year">${airDate}</div>
+                            <a href="#" onclick="showSelected('${tv.id}')" class="browse-movie-title">${tv.name}</a>
+                            <div class="browse-movie-year">First Aired: ${airDate}</div>
                             <button type="submit" class="button" onclick="showSelected('${tv.id}')">View Details</button>
                         </div>
                         </div>
@@ -106,7 +106,7 @@ function popularShows() {
 
 
 
-function getMovies(searchText) {
+function searchMovies(searchText) {
 
     axios.get('https://api.themoviedb.org/3/search/movie?api_key=ba31950d4ba335efd7f27e451b503b34&query=' + searchText)
         .then((response) => {
@@ -145,7 +145,7 @@ function getMovies(searchText) {
         });
 }
 
-function getShows(searchText) {
+function searchShows(searchText) {
 
     axios.get('https://api.themoviedb.org/3/search/tv?api_key=ba31950d4ba335efd7f27e451b503b34&query=' + searchText)
         .then((response) => {
@@ -170,7 +170,7 @@ function getShows(searchText) {
                             <img src="${poster}" alt="poster" width="210" height="315" class="img">
                             <div class="browse-movie-bottom">
                                 <a href="#" onclick="showSelected('${tv.id}')" class="browse-movie-title">${tv.name}</a>
-                                <div class="browse-movie-year">${airDate}</div>
+                                <div class="browse-movie-year">First Aired: ${airDate}</div>
                                 <button type="submit" class="button" onclick="showSelected('${tv.id}')">View Details</button>
                             </div>
                             </div>
@@ -300,10 +300,11 @@ function getMovie() {
 function getShow() {
     let showId = sessionStorage.getItem('id');
 
-    axios.get(`https://api.themoviedb.org/3/tv/${showId}?api_key=ba31950d4ba335efd7f27e451b503b34&append_to_response=season/1, season/2`)
+    axios.get(`https://api.themoviedb.org/3/tv/${showId}?api_key=ba31950d4ba335efd7f27e451b503b34&append_to_response=season/1`)
         .then((response) => {
             console.log(response);
             let tv = response.data;
+        
 
             if (tv.poster_path === null) {
                 poster = "images/default-movie.png";
@@ -319,15 +320,24 @@ function getShow() {
             tv.genres.forEach(element => {
                 genre.push(element.name);
             });
-
             let season = [];
             tv.seasons.forEach(element => {
-                season.push(element.name);
+                season.push(element.air_date)
             });
 
-            genres = genre.join(', ');
-            seasons = season.join(' <br />');
+            /*let vids = [];
+            tv.videos.results.forEach(element => {
+                vids.push(element.key)
+            });*/
 
+            genres = genre.join(', ');
+            seasons = season.join(', ');
+            //vidss = vids.join(', ');
+
+            //let string= "https://youtube.com/embed/";
+            //video = string.concat(vids[0]);
+        
+        
             let output1 = `
             <div class="row">
                 <div class="col-md-4 box1">
@@ -345,7 +355,16 @@ function getShow() {
                         <li class="list-group-item active">
                             <strong>Status: </strong> ${tv.status}</li>
                         <li class="list-group-item active">
-                            <strong>Seasons: </strong><br/> ${seasons} </li>
+                            <strong>Seasons: </strong> ${tv.number_of_seasons} </li>
+                        <li class="list-group-item active">
+                            <strong>Episodes: </strong> ${tv.number_of_episodes}  </li>
+                        <li class="list-group-item active">
+                            <strong>Episode Length: </strong> ${tv.episode_run_time} minutes </li>
+                       
+
+                      
+
+
              
                     </ul>
 
@@ -457,7 +476,52 @@ function getTopShows() {
         });
 }
 
+function getEpisodes() {
+    let showId = sessionStorage.getItem('id');
+
+    axios.get(`https://api.themoviedb.org/3/tv/${showId}?api_key=ba31950d4ba335efd7f27e451b503b34&append_to_response=season/1`)
+        .then((response) => {
+            let tv = response.data;
+            let output = '';
 
 
+            let episodeName = [];
+            tv["season/1"].episodes.forEach(element => {
+                episodeName.push(element.name)
+                episodeName.push(element.episode_number)
+                episodeName.push(element.overview)
+            }); 
+
+            let episodeNumber = [];
+            tv["season/1"].episodes.forEach(element => {
+                episodeNumber.push(element.episode_number)
+            });
+
+            let episodeSynopsis = [];
+            tv["season/1"].episodes.forEach(element => {
+                episodeSynopsis.push(element.overview)
+            });
+
+            episodeNames = episodeName.join(' <br/> ');
+            episodeNumbers = episodeNumber.join(', ');
+            episodeSynopsiss = episodeSynopsis.join(', ');
+          
+            output += `
+                        <div class="row review">
+                            <div class="col-md-10 box-review2">
+                                <h5> ${episodeNames}</h5>
+                                <div class="content">
+                                    <p style="color:silver;"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            $('#episodes').html(output);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
 
 
