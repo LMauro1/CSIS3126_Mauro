@@ -3,8 +3,8 @@
 
 	<head>
 		<meta charset="UTF-8">
-	  	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  	<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+	  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	  	<title>Indagatrix</title>
 
 	  	<!-- Various Stylings, all used (I think)-->
@@ -14,7 +14,7 @@
    	 	<link rel="stylesheet" href="css/bootstrap.min.css">
     
    	 	<!-- Scripts, mostly for javascript/jquery librarys -->
-   	 	 <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+   	 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -34,6 +34,7 @@
 			<a class = "active" href = "top_rated_movies.php"> Top Rated Movies </a>
 			<a class = "active" href = "top_rated_shows.php"> Top Rated Shows </a>
 			<a class = "active" href = "help.php"> Help? </a>
+			<a class = "active" href = "user_search.php"> Users </a>
 
 		<?php 
 	 		if ($_SESSION["userid"] == "") {
@@ -43,7 +44,7 @@
 			<?php 
 				} else {
 			?>
-				<a href = "" class="lisa active"> Profile </a>
+				<a href = "profile_page.php" class="lisa active"> Profile </a>
 				<a href="log_out.php" class="lisa active"> Sign Out </a>
 			<?php } ?>
 		</div>

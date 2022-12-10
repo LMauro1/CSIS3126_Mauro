@@ -1,6 +1,6 @@
 <?php
-	include("header.php");
 	include("global.php");
+    include("header.php");
 ?>
     <div class="container-fluid body">
     

@@ -1,6 +1,6 @@
 <?php
-	include("header.php");
 	include("global.php");
+	include("header.php");
 ?>
 <style>
 	   html{
@@ -22,6 +22,18 @@
 
 		<div class="user-box">
 			<input type="password" name="password" placeholder="Enter Password" value="<?php echo htmlspecialchars($_POST["password"],ENT_QUOTES);?>"><br/><br/>
+		</div>
+
+		<div class="user-box">
+			<input type="text" name="display_name" placeholder="Enter display name" value="<?php echo htmlspecialchars($_POST["display_name"],ENT_QUOTES);?>"><br/><br/>
+		</div>
+
+		<div class="user-box">
+			<input type="text" name="about_me" placeholder="Put some information about yourself! (Or don't...)" value="<?php echo htmlspecialchars($_POST["about_me"],ENT_QUOTES);?>"><br/><br/>
+		</div>
+
+		<div class="user-box">
+			<input type="text" name="twitter" placeholder="Enter Twitter (can be blank)" value="<?php echo htmlspecialchars($_POST["twitter"],ENT_QUOTES);?>"><br/><br/>
 		</div>
 
 		<!--<div class="user-box">

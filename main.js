@@ -39,7 +39,7 @@ function popularMovies() {
             let output = '';
             $.each(movies, (index, movie) => {
 
-                if (movie.poster_path === null) {
+                if (movie.poster_path == null) {
                     poster = "images/default-movie.png";
                 } else {
                     poster = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + movie.poster_path;
@@ -49,7 +49,7 @@ function popularMovies() {
 
                 let year = date.slice(0, 4);
                 output += `
-                    <div class="col-md-3 box">
+                    <div class="col-lg-3 box">
                       <div class="movieBox">
                         <img src="${poster}" alt="poster" width="210" height="315" class="img">
                         <div class="browse-movie-bottom">
@@ -76,7 +76,7 @@ function popularShows() {
             let output = '';
             $.each(shows, (index, tv) => {
 
-                if (tv.poster_path === null) {
+                if (tv.poster_path == null) {
                     poster = "images/default-movie.png";
                 } else {
                     poster = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + tv.poster_path;
@@ -116,7 +116,7 @@ function searchMovies(searchText) {
             let output1 = '';
             $.each(movies, (index, movie) => {
 
-                if (movie.poster_path === null) {
+                if (movie.poster_path == null) {
                     poster = "images/default-movie.png";
                 } else {
                     poster = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + movie.poster_path;
@@ -156,7 +156,7 @@ function searchShows(searchText) {
             let output1 = '';
             $.each(shows, (index, tv) => {
 
-                if (tv.poster_path === null) {
+                if (tv.poster_path == null) {
                     poster = "images/default-movie.png";
                 } else {
                     poster = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + tv.poster_path;
@@ -229,7 +229,7 @@ function getMovie() {
 
             //if there is no poster for the movie on TMDB, replace with a default image, otherwise size the image to a 
             //height of 278 and a width of 185, and get the path to the image
-            if (movie.poster_path === null) {
+            if (movie.poster_path == null) {
                 poster = "images/default-movie.png";
             } else {
                 poster = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + movie.poster_path;
@@ -297,6 +297,9 @@ function getMovie() {
         });
 }
 
+
+//function to get the data for a show. Gets the id of the show, sends an api request to the TMDB using said id, which then returns data that is accessed via 
+//response.data.[data field wanted]. Set variable for this response.data to make it more consise. 
 function getShow() {
     let showId = sessionStorage.getItem('id');
 
@@ -306,7 +309,7 @@ function getShow() {
             let tv = response.data;
         
 
-            if (tv.poster_path === null) {
+            if (tv.poster_path == null) {
                 poster = "images/default-movie.png";
             } else {
                 poster = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + tv.poster_path;
@@ -336,6 +339,12 @@ function getShow() {
 
             //let string= "https://youtube.com/embed/";
             //video = string.concat(vids[0]);
+
+            if(tv.episode_run_time ==  ""){
+                episodeRunTime = "N/A";
+            } else {
+                episodeRunTime = tv.episode_run_time + " minutes";
+            }
         
         
             let output1 = `
@@ -359,7 +368,7 @@ function getShow() {
                         <li class="list-group-item active">
                             <strong>Episodes: </strong> ${tv.number_of_episodes}  </li>
                         <li class="list-group-item active">
-                            <strong>Episode Length: </strong> ${tv.episode_run_time} minutes </li>
+                            <strong>Episode Length: </strong> ${episodeRunTime}</li>
                        
 
                       
@@ -379,12 +388,15 @@ function getShow() {
                         <a href="index.php" class="button">Go Back To Search</a>
 
                         <br/><br/><br/><label for="movieWatch">Watch Status:</label>
+                        <form>
                         <select name="movieWatch" id="movieWatch">
                             <option disabled selected value> -- Select an Option -- </option>
                             <option value="seen">Seen</option>
                             <option value="plan to see">Plan to See</option>
                             <option value="havent seen">Haven't seen</option>
                         </select>
+                        <input type="submit" value="bruh" onsubmit="">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -407,7 +419,7 @@ function getTopMovies() {
             let output = '';
             $.each(movies, (index, movie) => {
 
-                if (movie.poster_path === null) {
+                if (movie.poster_path == null) {
                     poster = "images/default-movie.png";
                 } else {
                     poster = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + movie.poster_path;
@@ -448,7 +460,7 @@ function getTopShows() {
             let output = '';
             $.each(shows, (index, tv) => {
 
-                if (tv.poster_path === null) {
+                if (tv.poster_path == null) {
                     poster = "images/default-movie.png";
                 } else {
                     poster = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + tv.poster_path;
@@ -479,7 +491,7 @@ function getTopShows() {
 function getEpisodes() {
     let showId = sessionStorage.getItem('id');
 
-    axios.get(`https://api.themoviedb.org/3/tv/${showId}?api_key=ba31950d4ba335efd7f27e451b503b34&append_to_response=season/1`)
+    axios.get(`https://api.themoviedb.org/3/tv/${showId}?api_key=ba31950d4ba335efd7f27e451b503b34&append_to_response=season/1, season/2`)
         .then((response) => {
             let tv = response.data;
             let output = '';
@@ -502,7 +514,7 @@ function getEpisodes() {
                 episodeSynopsis.push(element.overview)
             });
 
-            episodeNames = episodeName.join(' <br/> ');
+            episodeNames = episodeName.join(' <br/><br/> ');
             episodeNumbers = episodeNumber.join(', ');
             episodeSynopsiss = episodeSynopsis.join(', ');
           

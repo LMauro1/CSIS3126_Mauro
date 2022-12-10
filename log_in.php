@@ -1,6 +1,9 @@
 <?php
-	include("header.php");
+
 	include("global.php");
+	include("header.php");
+	
+
 ?>
 <style>
 	html{

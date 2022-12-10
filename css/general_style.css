@@ -14,6 +14,17 @@ body {
     font-size: 16px;
 }
 
+input[type=submit]{
+	background-color: #4b52a6;
+	border: none;
+	color: #fff;
+	padding: 16px 32px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 4px;
+	align-items: center;
+}
 
 a {
     color: dodgerblue;
@@ -132,9 +143,6 @@ h1{
 	text-align: center;
 }
 
-.box{
-	border: solid black 0px;
-}
 .logo{
 	width: 170px;
 
@@ -153,7 +161,7 @@ h1{
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: #;
     background-clip: border-box;
     border: 0 solid rgba(0,0,0,.125);
     border-radius: .25rem;
@@ -190,3 +198,4 @@ h1{
 .bold{
     font-weight: bolder;
 }
+

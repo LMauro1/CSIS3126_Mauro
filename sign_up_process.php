@@ -16,11 +16,11 @@ if($_POST["username"] == ""){
 		$row = mysqli_fetch_assoc($res);
 
 		if($row > 0){
-			$errormessage = $errormessage . "This username is taken <br />";
+			$errormessage = $errormessage . "This username is taken. <br />";
 		}
 
 		if(strlen($username) < 8){
-			$errormessage = $errormessage . "This username is too short (must be 8 or more characters!) <br />";
+			$errormessage = $errormessage . "Your username must be 8 characters or greater! <br />";
 	}
 }
 
@@ -37,6 +37,15 @@ if($_POST["password"] == ""){
 	}
 
 
+if ($_POST["display_name"] == "")
+	$errormessage .= "Display Name is required<br />";
+
+$display_name = mysqli_real_escape_string($connection,$_POST["display_name"]);
+$about_me = mysqli_real_escape_string($connection,$_POST["about_me"]);
+$twitter = mysqli_real_escape_string($connection,$_POST["twitter"]);
+
+
+
 
 //$email = mysqli_real_escape_string($connection, $_POST["email"]);
 
@@ -46,7 +55,11 @@ if($errormessage != ""){
 	die();
 	}
 
-mysqli_query($connection, "insert into users (username, password) values ('$username', '$password')") or die("Unable to add user to database.");
+$passEnc = md5($password);
+
+mysqli_query($connection, "insert into users (username, password) values ('$username', '$passEnc')") or die("Unable to add user to database.");
+mysqli_query($connection,"insert into userprofile (display_name, about_me, twitter) values ('$display_name','$about_me', '$twitter')") or die("Unable to run query");
+
 echo("You are registered! <a href ='log_in.php'> Click here to log in! </a>");
 
 

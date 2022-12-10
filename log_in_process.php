@@ -1,5 +1,5 @@
 <?php
-
+	session_start();
 	include("global.php");
 
 	$errormessage = "";
@@ -12,16 +12,14 @@
 
 	
 	$username = mysqli_real_escape_string($connection, $_POST["username"]);
-	$password = mysqli_real_escape_string($connection, $_POST["password"]);
-
-
-
-	$res = mysqli_query($connection, "select * from users where username = '$username' and password = '$password'");
+	$password = mysqli_real_escape_string($connection, md5($_POST["password"]));
 
 	if($errormessage != ""){
 				include("log_in.php");
 				die();
 			}
+
+	$res = mysqli_query($connection, "select * from users where username = '$username' and password = '$password'");
 
 	if(mysqli_num_rows($res) == 0){
 		echo "Invalid login! Please <a href='log_in.php'> re-enter your information!</a>";
@@ -29,7 +27,7 @@
 	} else {
 
 		$row = mysqli_fetch_assoc($res);
-		$_SESSION['username'] = $row["id"];
+		$_SESSION["userid"] = $row["id"];
 
 		header("Location: index.php");
 	}

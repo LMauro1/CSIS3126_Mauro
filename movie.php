@@ -1,6 +1,6 @@
 <?php
- include("header.php");
- include("global.php");
+    include("global.php");
+    include("header.php");
 ?>
     <link rel="stylesheet" href="css/movie_style.css">
     <div class="container">
