@@ -1,12 +1,11 @@
 =====[GitHub page for "Indagatrix"]=====
 
 The goal of this application is to allow a user to create an account, where they
-can then start to track media (shows/movies/etc.) that they are watching. The user
-should in the end be able to log into their account, see the media they are tracking,
-view their profile, add friends (tentatively), and view others profiles. 
+can then view popular shows, as well as well rated shows. The user
+should in the end be able to view shows, see popular/top shows, see the stats for the media, log into their account, view their profile, 
+and view others profiles. 
 
-
-Link to the current application: https://lmauro1.github.io/CSIS3126_Mauro (currently not working I believe)
+[GitHub pages unfortunately not usable due to PHP]
 
 Currently, there is:
 
@@ -19,8 +18,7 @@ Currently, there is:
 	- A "top shows" page that shows the 20 highest rated shows on TMDB
 	- A "help?" tab that will be implemented differently in the future but provides an overview of some things about the website (will be
 	  further fleshed out in later pushes). 
-	- A "Users" tab that (hopefully) will be able to allow someone to look through other users on site. Currently displays users, but 
-	  doesn't link to them.
-
-More to come in the coming few days.
+	- A "Profile" tab that shows you your profile information; can edit display name and "about me" (easily expandable to include more
+	  information as the app is fleshed out). 
+	- A "Users" tab that displays the other users on the site; clicking them brings you to their profile. 
 

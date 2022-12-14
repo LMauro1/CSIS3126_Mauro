@@ -1,0 +1,9 @@
+<?php 
+	include("global.php");
+
+
+
+
+
+
+?>

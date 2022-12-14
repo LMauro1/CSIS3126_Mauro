@@ -11,7 +11,7 @@
 <div class ="login-box">
 	<h2> Sign Up </h2>
 
-	<form action="sign_up_process.php" method = "POST">
+	<form action="sign_up_process.php" method = "POST" enctype="multipart/form-data">
 		<!--<div class="user-box">
 			<input type="email" name="email" placeholder="Enter Email" value="<?php echo htmlspecialchars($_POST["email"],ENT_QUOTES);?>"> <br /> <br />
 		</div>-->
@@ -32,9 +32,14 @@
 			<input type="text" name="about_me" placeholder="Put some information about yourself! (Or don't...)" value="<?php echo htmlspecialchars($_POST["about_me"],ENT_QUOTES);?>"><br/><br/>
 		</div>
 
-		<div class="user-box">
+		<!--<div class="user-box">
 			<input type="text" name="twitter" placeholder="Enter Twitter (can be blank)" value="<?php echo htmlspecialchars($_POST["twitter"],ENT_QUOTES);?>"><br/><br/>
-		</div>
+		</div>-->
+
+		<!--<div class="user-box">
+			<label for="img">Select Image:</label>
+			<input type="file" id="img" name="uploadfile" accept="image/*"><br/><br/>
+		</div>-->
 
 		<!--<div class="user-box">
 			<input type="password" name="rptpassword" placeholder="Re-enter Password" value="<?php echo htmlspecialchars($_POST["rptpassword"],ENT_QUOTES);?>"><br/><br/>

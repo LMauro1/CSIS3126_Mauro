@@ -14,8 +14,6 @@
 	$_POST["id"] = $row["id"];
 	$_POST["display_name"] = $row["display_name"];
 	$_POST["about_me"] = $row["about_me"];
-	$_POST["twitter"] = $row["twitter"];
-
 
 	//show the form
 	include("profile_edit.php");

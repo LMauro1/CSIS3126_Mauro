@@ -387,15 +387,15 @@ function getShow() {
                         <a href="${tv.homepage}" target="_blank" class="button">View Website</a>
                         <a href="index.php" class="button">Go Back To Search</a>
 
-                        <br/><br/><br/><label for="movieWatch">Watch Status:</label>
-                        <form>
-                        <select name="movieWatch" id="movieWatch">
+                        <br/><br/><br/><label for="showWatch">Watch Status:</label>
+                        <form action="show_track.php" method="POST">
+                        <select name="showWatch" id="showWatch">
                             <option disabled selected value> -- Select an Option -- </option>
                             <option value="seen">Seen</option>
                             <option value="plan to see">Plan to See</option>
                             <option value="havent seen">Haven't seen</option>
                         </select>
-                        <input type="submit" value="bruh" onsubmit="">
+                        <input type="submit" value="submit" onsubmit="">
                         </form>
                     </div>
                 </div>
@@ -491,41 +491,39 @@ function getTopShows() {
 function getEpisodes() {
     let showId = sessionStorage.getItem('id');
 
-    axios.get(`https://api.themoviedb.org/3/tv/${showId}?api_key=ba31950d4ba335efd7f27e451b503b34&append_to_response=season/1, season/2`)
+    axios.get(`https://api.themoviedb.org/3/tv/${showId}?api_key=ba31950d4ba335efd7f27e451b503b34&append_to_response=season/1,season/2`)
         .then((response) => {
             let tv = response.data;
             let output = '';
 
 
-            let episodeName = [];
+            let episodeS1 = [];
             tv["season/1"].episodes.forEach(element => {
-                episodeName.push(element.name)
-                episodeName.push(element.episode_number)
-                episodeName.push(element.overview)
+                episodeS1.push(element.name)
+                episodeS1.push(element.episode_number)
+                episodeS1.push(element.overview)
             }); 
 
-            let episodeNumber = [];
-            tv["season/1"].episodes.forEach(element => {
-                episodeNumber.push(element.episode_number)
-            });
+            /*
+            if(tv["season/2"] != []){
+                let episodeS2 = [];
+                tv["season/2"].episodes.forEach(element => {
+                    episodeS2.push(element.name)
+                    episodeS2.push(element.episode_number)
+                    episodeS2.push(element.overview)
+                 });
 
-            let episodeSynopsis = [];
-            tv["season/1"].episodes.forEach(element => {
-                episodeSynopsis.push(element.overview)
-            });
-
-            episodeNames = episodeName.join(' <br/><br/> ');
-            episodeNumbers = episodeNumber.join(', ');
-            episodeSynopsiss = episodeSynopsis.join(', ');
+                episodesS2 = episodeS2.join(' <br/><br/> ');
+            }
+                */
+            episodesS1 = episodeS1.join(' <br/><br/> ');
+            
           
             output += `
                         <div class="row review">
                             <div class="col-md-10 box-review2">
-                                <h5> ${episodeNames}</h5>
-                                <div class="content">
-                                    <p style="color:silver;"></p>
-                                </div>
-                            </div>
+                                <h4> Season 1: </h4>
+                                <p style="color:silver;">${episodesS1}</p>      
                         </div>
                     </div>
                 `

@@ -42,7 +42,6 @@ if ($_POST["display_name"] == "")
 
 $display_name = mysqli_real_escape_string($connection,$_POST["display_name"]);
 $about_me = mysqli_real_escape_string($connection,$_POST["about_me"]);
-$twitter = mysqli_real_escape_string($connection,$_POST["twitter"]);
 
 
 
@@ -55,10 +54,10 @@ if($errormessage != ""){
 	die();
 	}
 
-$passEnc = md5($password);
+$passEnc = hash('sha256', $password);
 
 mysqli_query($connection, "insert into users (username, password) values ('$username', '$passEnc')") or die("Unable to add user to database.");
-mysqli_query($connection,"insert into userprofile (display_name, about_me, twitter) values ('$display_name','$about_me', '$twitter')") or die("Unable to run query");
+mysqli_query($connection,"insert into userprofile (display_name, about_me) values ('$display_name','$about_me')") or die("Unable to run query");
 
 echo("You are registered! <a href ='log_in.php'> Click here to log in! </a>");
 

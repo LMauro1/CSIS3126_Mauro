@@ -14,7 +14,7 @@
                               <p style="color:white; font-weight: bold;"> Some general tips for website usage: <br /> </p>
 							  <p class="white">1. You can search movies and tv shows on the homepage. <br />
 								 2. Movies link to their IMDB page, while shows link to their main website (This can be on Hulu, Netflix, etc.) <br />
-								 3. .... <br />
+								 3. When creating an account, the only required fields are username, password, and a display name. Everything else is optional. <br />
 								 4. ... <br />
 								 5. ... <br />
                             </p>

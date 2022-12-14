@@ -15,7 +15,6 @@
     
    	 	<!-- Scripts, mostly for javascript/jquery librarys -->
    	 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     	<script src="main.js"></script>
