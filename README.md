@@ -26,5 +26,6 @@ To recreate:
 	- sql dump contains database name and tables 
 	- API Key is located in main.js, should work on install without need for access but it is there if needed (ctrl + F "api_key" will 
 		show it). 
+	- The password for the test accounts [test account 1-5] is the same as the username, for ease of remembering and access. 
 
 
