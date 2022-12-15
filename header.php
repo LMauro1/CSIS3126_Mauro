@@ -24,17 +24,17 @@
 	<body>
 
 		<div class ="header">
-			<a href="index.php"><img src = "https://www.logolynx.com/images/logolynx/9a/9ac1859618b5cf17e81966d87a0029e0.png" class="logo" align="left"></a>
-			<h1 style="display:inline;"> Indagatrix </h1>
+				<h1 style="display:inline;"> Indagatrix </h1>
 		</div>
-
+		<!-- navbar that links to various things -->
 		<div class = "topnav">
 			<a class = "active" href = "index.php"> Home </a>
 			<a class = "active" href = "top_rated_movies.php"> Top Rated Movies </a>
 			<a class = "active" href = "top_rated_shows.php"> Top Rated Shows </a>
-			<a class = "active" href = "help.php"> Help? </a>
+			<a class = "active" href = "help.php"> Help </a>
 			<a class = "active" href = "user_search.php"> Users </a>
 
+		<!-- navbar display here will change depending on if user is logged in or not-->
 		<?php 
 	 		if ($_SESSION["userid"] == "") {
 	 	?>

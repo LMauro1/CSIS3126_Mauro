@@ -11,6 +11,7 @@
 	   }
 </style>
 
+<!-- HTML form that allows the user to log in -->
 <div class="login-box">
 	<h2> Log In </h2>
 

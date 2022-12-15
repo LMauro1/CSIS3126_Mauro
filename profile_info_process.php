@@ -3,6 +3,7 @@
 
 $id = intval($_SESSION["userid"]);
 
+//pulls info as gets rather than posts for displaying on the user profile. 
 $res = mysqli_query($connection,"select * from userprofile where id = $id");
 $row = mysqli_fetch_assoc($res);
 $_GET["display_name"] = $row["display_name"];

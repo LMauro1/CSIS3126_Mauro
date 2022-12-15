@@ -2,6 +2,8 @@
 	include("global.php");
     include("header.php");
 ?>
+
+<!-- displays the top movies on TMDB -->
     <div class="container-fluid body">
     
 

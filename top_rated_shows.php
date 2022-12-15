@@ -2,6 +2,9 @@
 	include("global.php");
     include("header.php");
 ?>
+
+<!-- displays the top shows on TMDB -->
+
     <div class="container-fluid body">
     
         

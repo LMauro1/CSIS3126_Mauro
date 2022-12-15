@@ -4,6 +4,8 @@
 ?>
 <style> html{height:100%} </style>
 
+<!-- Displays some general use website tips -->
+
  <div class="container-fluid body">
         <div class="container">
             <div class="sbox">
@@ -15,7 +17,7 @@
 							  <p class="white">1. You can search movies and tv shows on the homepage. <br />
 								 2. Movies link to their IMDB page, while shows link to their main website (This can be on Hulu, Netflix, etc.) <br />
 								 3. When creating an account, the only required fields are username, password, and a display name. Everything else is optional. <br />
-								 4. ... <br />
+								 4. Users are displayed alphabetically in the "Users" tab. <br />
 								 5. ... <br />
                             </p>
                         </div>

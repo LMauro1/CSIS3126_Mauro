@@ -2,10 +2,6 @@
 	include("global.php");
 	include("header.php");
 	include("profile_info_process.php");
-	
-	if ($_SESSION["userid"] == "") {
-		header("Location: not_logged_in.php");
-	}
 
 ?>
 
@@ -44,10 +40,12 @@
 	        </div>
 	        <div class="card mb-3 ml-3 col-md-6">
 	        	<div class="list-group">
-	        		<h2> Tracked Shows: </h2>
-	        		<p> Shows here </p>
+	        		<h2> Add a New Show: </h2>
+	        		<form action="show_track_process.php" method="POST">
+	        			<input type="text" name="show" placeholder="Enter a Show" value="<?php echo htmlspecialchars($_POST["show"],ENT_QUOTES);?>">
+	        			<input type="submit" value="Add Show"> 
+	        		</form>
 	        	</div>
-	        	<button class="button" onclick="location.href='show_track_page.php'"> Edit </button>
 	        </div>
 	    </div>
 	</div>

@@ -3,6 +3,8 @@
 	include("header.php");
 
 ?>
+
+<!-- Main webpage, displays the top 20 currently popular movies and shows on TMDB, and allows the user to search for any show in the TMDB database. -->
     <div class="container-fluid body">
         <div class="container">
             <div class="sbox">

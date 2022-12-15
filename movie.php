@@ -3,6 +3,9 @@
     include("header.php");
 ?>
     <link rel="stylesheet" href="css/movie_style.css">
+
+<!-- Container below used to display movie information from TMDB-->
+
     <div class="container">
         <div id="movie"></div>
     </div>

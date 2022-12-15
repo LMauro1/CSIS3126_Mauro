@@ -2,10 +2,9 @@
 include("global.php");
 
 $errormessage = "";
-	
-//if($_POST["email"] == "")
-		//$errormessage = $errormessage . "You must enter an email! <br />";
 
+//authentication for username, checks if user has entered a username, if the username is taken, and if the username length is 8 or more characters
+	
 if($_POST["username"] == ""){
 	$errormessage = $errormessage . "You must enter a username! <br />";
 
@@ -24,29 +23,32 @@ if($_POST["username"] == ""){
 	}
 }
 
-if($_POST["password"] == ""){
+//authentication for password, checks if user has entered a password, if the password and repeat password inputs and if the password length is 8 or more characters
+if($_POST["password"] == "" || $_POST["rptpassword"] == ""){
 		$errormessage = $errormessage . "You must enter a password! <br />";
 
 	} else {
 		$password = mysqli_real_escape_string($connection, $_POST["password"]);
+		$rptpassword = mysqli_real_escape_string($connection, $_POST["rptpassword"]);
+
+
+		if($password != $rptpassword){
+			$errormessage = $errormessage . "Both passwords must match. <br />";
+		}
 		
-		if(strlen($password) < 8){
-			$errormessage = $errormessage . "Your password must be 8 characters or greater!";
+		if(strlen($password) < 8 || strlen($rptpassword < 8)){
+			$errormessage = $errormessage . "Your password must be 8 characters or greater! <br /> ";
 		}
 
 	}
 
 
+//informs user that display name is required 
 if ($_POST["display_name"] == "")
 	$errormessage .= "Display Name is required<br />";
 
 $display_name = mysqli_real_escape_string($connection,$_POST["display_name"]);
 $about_me = mysqli_real_escape_string($connection,$_POST["about_me"]);
-
-
-
-
-//$email = mysqli_real_escape_string($connection, $_POST["email"]);
 
 
 if($errormessage != ""){
@@ -57,9 +59,8 @@ if($errormessage != ""){
 $passEnc = hash('sha256', $password);
 
 mysqli_query($connection, "insert into users (username, password) values ('$username', '$passEnc')") or die("Unable to add user to database.");
-mysqli_query($connection,"insert into userprofile (display_name, about_me) values ('$display_name','$about_me')") or die("Unable to run query");
-
-echo("You are registered! <a href ='log_in.php'> Click here to log in! </a>");
+mysqli_query($connection,"insert into userprofile (display_name, about_me) values ('$display_name','$about_me')") or die("Unable to run query.");
+header("Location: sign_up_success.php");
 
 
 ?>

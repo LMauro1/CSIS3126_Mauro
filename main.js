@@ -263,9 +263,15 @@ function getMovie() {
                         <li class="list-group-item active">
                             <strong>Rating: </strong> ${movie.vote_average} / 10 (${movie.vote_count} votes on TMDB)</li>
                         <li class="list-group-item active">
-                            <strong>Status: </strong> ${movie.status}</li>
+                            <strong>Status: </strong> ${movie.status} </li>
+                        <li class="list-group-item active">
+                            <strong> Release Date:</strong> ${movie.release_date}</li>
                         <li class="list-group-item active">
                             <strong>Duration: </strong> ${movie.runtime} min</li>
+                        <li class="list-group-item active">
+                            <strong>Budget: </strong> ~$${movie.budget} USD</li>
+                        <li class="list-group-item active">
+                            <strong>Revenue: </strong>$${movie.revenue} USD</li>
              
                     </ul>
 
@@ -279,13 +285,6 @@ function getMovie() {
                         <a href="http://imdb.com/title/${movie.imdb_id}" target="_blank" class="button">View IMDB</a>
                         <a href="index.php" class="button">Go Back To Search</a>
 
-                        <br/><br/><br/><label for="movieWatch">Watch Status:</label>
-                        <select name="movieWatch" id="movieWatch">
-                            <option disabled selected value> -- Select an Option -- </option>
-                            <option value="seen">Seen</option>
-                            <option value="plan to see">Plan to See</option>
-                            <option value="havent seen">Haven't seen</option>
-                        </select>
                     </div>
                 </div>
             </div>
@@ -386,17 +385,6 @@ function getShow() {
                     <div>
                         <a href="${tv.homepage}" target="_blank" class="button">View Website</a>
                         <a href="index.php" class="button">Go Back To Search</a>
-
-                        <br/><br/><br/><label for="showWatch">Watch Status:</label>
-                        <form action="show_track.php" method="POST">
-                        <select name="showWatch" id="showWatch">
-                            <option disabled selected value> -- Select an Option -- </option>
-                            <option value="seen">Seen</option>
-                            <option value="plan to see">Plan to See</option>
-                            <option value="havent seen">Haven't seen</option>
-                        </select>
-                        <input type="submit" value="submit" onsubmit="">
-                        </form>
                     </div>
                 </div>
             </div>
